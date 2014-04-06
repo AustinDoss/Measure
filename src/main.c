@@ -13,14 +13,34 @@ int inv_top;
 int inv_bot;
 static GRect inv_bounds;
 
-void set_inv_layer(int hours, int minutes) {
-  int check_hours = hours;
-  if (check_hours <= 12) {
-    inv_top = 168 - (check_hours * 14);
+void set_inv_layer_min(int hours, int minutes) {
+  if (hours <= 12) {
+    inv_top = 168 - (hours * 14);
     inv_bot = 168 - inv_top;
   } else {
     inv_top = 0;
-    inv_bot = 168 - ((check_hours - 12) * 14);
+    inv_bot = 168 - ((hours - 12) * 14);
+  }
+  //display inv layer
+  inverter_layer_destroy(inv_layer);
+  inv_layer = inverter_layer_create(inv_bounds);
+  layer_add_child(window_layer, (Layer*) inv_layer);
+}
+
+void update_time_min( struct tm* t) {
+  //Update the watchface minutes display every minute
+  strftime(minbuffer, sizeof("00"), "%M", t);
+  text_layer_set_text(text_layer, minbuffer);
+  set_inv_layer_min(t->tm_hour, t->tm_min);
+}
+
+void set_inv_layer(int hours, int minutes) {
+  if (hours <= 12) {
+    inv_top = 168 - (hours * 14);
+    inv_bot = 168 - inv_top;
+  } else {
+    inv_top = 0;
+    inv_bot = 168 - ((hours - 12) * 14);
   }
 }
 
@@ -32,7 +52,7 @@ void update_time( struct tm* t) {
 }
 
 void tick_handler(struct tm *tick_time, TimeUnits units_changed) {
-  update_time(tick_time);
+  update_time_min(tick_time);
 }
 
 void init(void) {
@@ -56,7 +76,7 @@ void init(void) {
     time_t temp = time(NULL);
     struct tm *t = localtime(&temp);
     update_time(t);
-    //Set up and display inv_layer
+    //Set up inv_layer
     inv_bounds = GRect (0, inv_top, 144, inv_bot);  
     inv_layer = inverter_layer_create(inv_bounds);
     layer_add_child(window_layer, (Layer*) inv_layer);
