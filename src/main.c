@@ -13,51 +13,157 @@ int inv_top;
 int inv_bot;
 static GRect inv_bounds;
 
-//void set_inv_layer_min(int hours, int minutes) {
-  //if (hours <= 12) {
-    //inv_top = 168 - (hours * 14);
-    //inv_bot = 168 - inv_top;
-  //} else {
-   //inv_top = 0;
-    //inv_bot = 168 - ((hours - 12) * 14);
-  //}
-  ////display inv layer
-  //inverter_layer_destroy(inv_layer);
-  //inv_layer = inverter_layer_create(inv_bounds);
-  //layer_add_child(window_layer, (Layer*) inv_layer);
-//}
-
 void update_time_min( struct tm* t) {
   //Update the watchface minutes display every minute
   strftime(minbuffer, sizeof("00"), "%M", t);
   text_layer_set_text(text_layer, minbuffer);
   int hours = t->tm_hour;
-  int min = t->tm_min;
+  int minutes = t->tm_min;
   if (hours <= 12) {
     inv_top = 168 - (hours * 14);
+    if (minutes > 0 && minutes < 5) {
+      inv_top = inv_top - 1;
+    }
+    if (minutes >= 5 && minutes < 10) {
+      inv_top = inv_top - 2;
+    }
+    if (minutes >= 10 && minutes < 15) {
+      inv_top = inv_top - 3;
+    }
+    if (minutes >= 15 && minutes < 20) {
+      inv_top = inv_top - 4;
+    }
+    if (minutes >= 20 && minutes < 25) {
+      inv_top = inv_top - 5;
+    }
+    if (minutes >= 25 && minutes < 30) {
+      inv_top = inv_top - 6;
+    }
+    if (minutes >= 30 && minutes < 35) {
+      inv_top = inv_top - 7;
+    }
+    if (minutes >= 35 && minutes < 40) {
+      inv_top = inv_top - 8;
+    }
+    if (minutes >= 40 && minutes < 45) {
+      inv_top = inv_top - 9;
+    } 
+    if (minutes >= 45 && minutes < 59) {
+      inv_top = inv_top - 10;
+    }
     inv_bot = 168 - inv_top;
   } else {
     inv_top = 0;
     inv_bot = 168 - ((hours - 12) * 14);
+    if (minutes > 0 && minutes < 5) {
+      inv_bot = inv_bot - 1;
+    }
+    if (minutes >= 5 && minutes < 10) {
+      inv_bot = inv_bot - 2;
+    }
+    if (minutes >= 10 && minutes < 15) {
+      inv_bot = inv_bot - 3;
+    }
+    if (minutes >= 15 && minutes < 20) {
+      inv_bot = inv_bot - 4;
+    }
+    if (minutes >= 20 && minutes < 25) {
+      inv_bot = inv_bot - 5;
+    }
+    if (minutes >= 25 && minutes < 30) {
+      inv_bot = inv_bot - 6;
+    }
+    if (minutes >= 30 && minutes < 35) {
+      inv_bot = inv_bot - 7;
+    }
+    if (minutes >= 35 && minutes < 40) {
+      inv_bot = inv_bot - 8;
+    }
+    if (minutes >= 40 && minutes < 45) {
+      inv_bot = inv_bot - 9;
+    } 
+    if (minutes >= 45 && minutes < 59) {
+      inv_bot = inv_bot - 10;
+    }
   }
-  //display inv layer
-  if (min == 0) {
   inverter_layer_destroy(inv_layer);
   inv_bounds = GRect (0, inv_top, 144, inv_bot);
   inv_layer = inverter_layer_create(inv_bounds);
   layer_add_child(window_layer, (Layer*) inv_layer);
-  //set_inv_layer_min(t->tm_hour, t->tm_min);
-  }
 }
 
 void set_inv_layer(int hours, int minutes) {
   if (hours <= 12) {
     inv_top = 168 - (hours * 14);
+    if (minutes > 0 && minutes < 5) {
+      inv_top = inv_top - 1;
+    }
+    if (minutes >= 5 && minutes < 10) {
+      inv_top = inv_top - 2;
+    }
+    if (minutes >= 10 && minutes < 15) {
+      inv_top = inv_top - 3;
+    }
+    if (minutes >= 15 && minutes < 20) {
+      inv_top = inv_top - 4;
+    }
+    if (minutes >= 20 && minutes < 25) {
+      inv_top = inv_top - 5;
+    }
+    if (minutes >= 25 && minutes < 30) {
+      inv_top = inv_top - 6;
+    }
+    if (minutes >= 30 && minutes < 35) {
+      inv_top = inv_top - 7;
+    }
+    if (minutes >= 35 && minutes < 40) {
+      inv_top = inv_top - 8;
+    }
+    if (minutes >= 40 && minutes < 45) {
+      inv_top = inv_top - 9;
+    } 
+    if (minutes >= 45 && minutes < 59) {
+      inv_top = inv_top - 10;
+    }
     inv_bot = 168 - inv_top;
   } else {
     inv_top = 0;
     inv_bot = 168 - ((hours - 12) * 14);
+    if (minutes > 0 && minutes < 5) {
+      inv_bot = inv_bot - 1;
+    }
+    if (minutes >= 5 && minutes < 10) {
+      inv_bot = inv_bot - 2;
+    }
+    if (minutes >= 10 && minutes < 15) {
+      inv_bot = inv_bot - 3;
+    }
+    if (minutes >= 15 && minutes < 20) {
+      inv_bot = inv_bot - 4;
+    }
+    if (minutes >= 20 && minutes < 25) {
+      inv_bot = inv_bot - 5;
+    }
+    if (minutes >= 25 && minutes < 30) {
+      inv_bot = inv_bot - 6;
+    }
+    if (minutes >= 30 && minutes < 35) {
+      inv_bot = inv_bot - 7;
+    }
+    if (minutes >= 35 && minutes < 40) {
+      inv_bot = inv_bot - 8;
+    }
+    if (minutes >= 40 && minutes < 45) {
+      inv_bot = inv_bot - 9;
+    } 
+    if (minutes >= 45 && minutes < 59) {
+      inv_bot = inv_bot - 10;
+    }
   }
+  //Set up inv_layer
+  inv_bounds = GRect (0, inv_top, 144, inv_bot);  
+  inv_layer = inverter_layer_create(inv_bounds);
+  layer_add_child(window_layer, (Layer*) inv_layer);
 }
 
 void update_time( struct tm* t) {
@@ -92,10 +198,6 @@ void init(void) {
     time_t temp = time(NULL);
     struct tm *t = localtime(&temp);
     update_time(t);
-    //Set up inv_layer
-    inv_bounds = GRect (0, inv_top, 144, inv_bot);  
-    inv_layer = inverter_layer_create(inv_bounds);
-    layer_add_child(window_layer, (Layer*) inv_layer);
     //Listens for event every minute and runs tick_handler
     tick_timer_service_subscribe(MINUTE_UNIT, &tick_handler);
 }
