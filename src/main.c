@@ -21,68 +21,68 @@ void update_time_min( struct tm* t) {
   int minutes = t->tm_min;
   if (hours <= 12) {
     inv_top = 168 - (hours * 14);
-    if (minutes > 0 && minutes < 5) {
+    if (minutes > 0 && minutes < 7) {
       inv_top = inv_top - 1;
     }
-    if (minutes >= 5 && minutes < 10) {
+    if (minutes >= 7 && minutes < 11) {
       inv_top = inv_top - 2;
     }
-    if (minutes >= 10 && minutes < 15) {
+    if (minutes >= 11 && minutes < 17) {
       inv_top = inv_top - 3;
     }
-    if (minutes >= 15 && minutes < 20) {
+    if (minutes >= 17 && minutes < 23) {
       inv_top = inv_top - 4;
     }
-    if (minutes >= 20 && minutes < 25) {
+    if (minutes >= 23 && minutes < 29) {
       inv_top = inv_top - 5;
     }
-    if (minutes >= 25 && minutes < 30) {
+    if (minutes >= 29 && minutes < 35) {
       inv_top = inv_top - 6;
     }
-    if (minutes >= 30 && minutes < 35) {
+    if (minutes >= 35 && minutes < 41) {
       inv_top = inv_top - 7;
     }
-    if (minutes >= 35 && minutes < 40) {
+    if (minutes >= 41 && minutes < 47) {
       inv_top = inv_top - 8;
     }
-    if (minutes >= 40 && minutes < 45) {
+    if (minutes >= 47 && minutes < 53) {
       inv_top = inv_top - 9;
     } 
-    if (minutes >= 45 && minutes < 59) {
+    if (minutes >= 53 && minutes < 59) {
       inv_top = inv_top - 10;
     }
     inv_bot = 168 - inv_top;
   } else {
     inv_top = 0;
     inv_bot = 168 - ((hours - 12) * 14);
-    if (minutes > 0 && minutes < 5) {
+    if (minutes > 0 && minutes < 7) {
       inv_bot = inv_bot - 1;
     }
-    if (minutes >= 5 && minutes < 10) {
+    if (minutes >= 7 && minutes < 11) {
       inv_bot = inv_bot - 2;
     }
-    if (minutes >= 10 && minutes < 15) {
+    if (minutes >= 11 && minutes < 17) {
       inv_bot = inv_bot - 3;
     }
-    if (minutes >= 15 && minutes < 20) {
+    if (minutes >= 17 && minutes < 23) {
       inv_bot = inv_bot - 4;
     }
-    if (minutes >= 20 && minutes < 25) {
+    if (minutes >= 23 && minutes < 29) {
       inv_bot = inv_bot - 5;
     }
-    if (minutes >= 25 && minutes < 30) {
+    if (minutes >= 29 && minutes < 35) {
       inv_bot = inv_bot - 6;
     }
-    if (minutes >= 30 && minutes < 35) {
+    if (minutes >= 35 && minutes < 41) {
       inv_bot = inv_bot - 7;
     }
-    if (minutes >= 35 && minutes < 40) {
+    if (minutes >= 41 && minutes < 47) {
       inv_bot = inv_bot - 8;
     }
-    if (minutes >= 40 && minutes < 45) {
+    if (minutes >= 47 && minutes < 53) {
       inv_bot = inv_bot - 9;
     } 
-    if (minutes >= 45 && minutes < 59) {
+    if (minutes >= 53 && minutes < 59) {
       inv_bot = inv_bot - 10;
     }
   }
@@ -95,68 +95,68 @@ void update_time_min( struct tm* t) {
 void set_inv_layer(int hours, int minutes) {
   if (hours <= 12) {
     inv_top = 168 - (hours * 14);
-    if (minutes > 0 && minutes < 5) {
+    if (minutes > 0 && minutes < 7) {
       inv_top = inv_top - 1;
     }
-    if (minutes >= 5 && minutes < 10) {
+    if (minutes >= 7 && minutes < 11) {
       inv_top = inv_top - 2;
     }
-    if (minutes >= 10 && minutes < 15) {
+    if (minutes >= 11 && minutes < 17) {
       inv_top = inv_top - 3;
     }
-    if (minutes >= 15 && minutes < 20) {
+    if (minutes >= 17 && minutes < 23) {
       inv_top = inv_top - 4;
     }
-    if (minutes >= 20 && minutes < 25) {
+    if (minutes >= 23 && minutes < 29) {
       inv_top = inv_top - 5;
     }
-    if (minutes >= 25 && minutes < 30) {
+    if (minutes >= 29 && minutes < 35) {
       inv_top = inv_top - 6;
     }
-    if (minutes >= 30 && minutes < 35) {
+    if (minutes >= 35 && minutes < 41) {
       inv_top = inv_top - 7;
     }
-    if (minutes >= 35 && minutes < 40) {
+    if (minutes >= 41 && minutes < 47) {
       inv_top = inv_top - 8;
     }
-    if (minutes >= 40 && minutes < 45) {
+    if (minutes >= 47 && minutes < 53) {
       inv_top = inv_top - 9;
     } 
-    if (minutes >= 45 && minutes < 59) {
+    if (minutes >= 53 && minutes < 59) {
       inv_top = inv_top - 10;
     }
     inv_bot = 168 - inv_top;
   } else {
     inv_top = 0;
     inv_bot = 168 - ((hours - 12) * 14);
-    if (minutes > 0 && minutes < 5) {
+    if (minutes > 0 && minutes < 7) {
       inv_bot = inv_bot - 1;
     }
-    if (minutes >= 5 && minutes < 10) {
+    if (minutes >= 7 && minutes < 11) {
       inv_bot = inv_bot - 2;
     }
-    if (minutes >= 10 && minutes < 15) {
+    if (minutes >= 11 && minutes < 17) {
       inv_bot = inv_bot - 3;
     }
-    if (minutes >= 15 && minutes < 20) {
+    if (minutes >= 17 && minutes < 23) {
       inv_bot = inv_bot - 4;
     }
-    if (minutes >= 20 && minutes < 25) {
+    if (minutes >= 23 && minutes < 29) {
       inv_bot = inv_bot - 5;
     }
-    if (minutes >= 25 && minutes < 30) {
+    if (minutes >= 29 && minutes < 35) {
       inv_bot = inv_bot - 6;
     }
-    if (minutes >= 30 && minutes < 35) {
+    if (minutes >= 35 && minutes < 41) {
       inv_bot = inv_bot - 7;
     }
-    if (minutes >= 35 && minutes < 40) {
+    if (minutes >= 41 && minutes < 47) {
       inv_bot = inv_bot - 8;
     }
-    if (minutes >= 40 && minutes < 45) {
+    if (minutes >= 47 && minutes < 53) {
       inv_bot = inv_bot - 9;
     } 
-    if (minutes >= 45 && minutes < 59) {
+    if (minutes >= 53 && minutes < 59) {
       inv_bot = inv_bot - 10;
     }
   }
