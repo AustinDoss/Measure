@@ -1,17 +1,17 @@
 {
-    "versionLabel": "1.0",
     "uuid": "0b7d0f0b-484b-45ce-b7cb-e48940c51427",
-    "appKeys": {},
-    "longName": "Measure",
-    "versionCode": 1,
+    "watchapp": {
+        "watchface": true
+    },
+    "versionLabel": "1.2",
+    "companyName": "austin.doss@outlook.com",
     "capabilities": [
         ""
     ],
     "shortName": "Measure",
-    "companyName": "austin.doss@outlook.com",
-    "watchapp": {
-        "watchface": true
-    },
+    "longName": "Measure",
+    "versionCode": 2,
+    "appKeys": {},
     "resources": {
         "media": [
             {
